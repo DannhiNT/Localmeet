@@ -2,8 +2,6 @@
 
 LocalMeet is a community-driven web application that allows local residents and organizations to create, discover, and manage events happening in a specific area. Users can browse events, view details, and register interest, helping hosts better estimate attendance and coordinate logistics.
 
----
-
 ## Features (open for development)
 
 - Create and manage local events
@@ -12,16 +10,12 @@ LocalMeet is a community-driven web application that allows local residents and 
 - Email notifications after registration closes
 - Simple and lightweight setup using SQLite
 
----
-
 ## Tech Stack
 
 - **Backend**: Python, Flask
 - **Database**: SQLite
 - **Environment Management**: `venv`, `python-dotenv`, `flaskenv`
 - **ORM**: Flask-SQLAlchemy (if applicable)
-
----
 
 ## ⚙️ Setup & Installation
 
@@ -63,8 +57,6 @@ Create a `.flaskenv` file:
 FLASK_DATA_FILE="local-meet"
 ```
 
----
-
 ## Running the Application
 
 ```bash
@@ -83,14 +75,10 @@ or
 http://localhost:5000/events
 ```
 
----
-
 ## Database
 
 - Uses **SQLite** for local development
 - Database file: `local-meet.sqlite3`
-
----
 
 ## Future Improvements
 
@@ -99,19 +87,13 @@ http://localhost:5000/events
 - Admin dashboard for event moderation
 - Production deployment (Docker / Cloud)
 
----
-
 ## License
 
 This project is licensed under the MIT License.
 
----
-
 ## Ownership
 
 This project was created and is maintained by Nhi Nguyen (Justine). All contributions are welcome, and ownership remains with the original author.
-
----
 
 ## Acknowledgements
 
