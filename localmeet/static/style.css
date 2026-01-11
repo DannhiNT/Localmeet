@@ -1,0 +1,65 @@
+@import url("https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Global style */
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.localmeet-textlogo {
+  font-family: "Sour Gummy";
+  color: rgb(255, 111, 135);
+}
+
+.box {
+  border-radius: 10px;
+}
+
+/* Custom event_list style */
+.event-image-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.event-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.event-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.event-link:hover .event-card {
+  box-shadow: 0 9px 20px rgba(0, 0, 0, 0.12);
+  transition: 0.3s;
+}
+
+.event-link:hover .event-title {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .event-image-frame {
+    height: 180px;
+  }
+}
+
+/* Custom show event details style */
+.details-event-image-frame {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  overflow: hidden;
+}
+
+.event-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

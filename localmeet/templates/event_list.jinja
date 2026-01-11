@@ -1,0 +1,43 @@
+{% extends 'base.jinja' %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-9">
+        {% if events %}
+        {% for event in events %}
+        <a href="{{ url_for('events.event_detail', event_id=event.id)}}" class="event-link">
+          <div class="box mb-5 p-4 event-card">
+            <div class="columns">
+
+              <div class="column is-3-desktop is-4-tablet is-12-mobile is-flex">
+                <figure class="event-image-frame">
+                  <img src="{{ event.cover_image_path }}" alt="Event Cover Image">
+                </figure>
+              </div>
+
+              <div class="column is-7-desktop is-8-tablet is-12-mobile">
+                <p class="has-text-danger has-text-weight-semibold is-size-7">
+                  {{ event.date.strftime("%a, %B %d, %Y") }}
+                </p>
+
+                <h3 class="title is-5 mt-1 event-title">{{ event.title }}</h3>
+
+                <p class="is-size-10 has-text-grey">
+                  {{ event.short_description }}
+                </p>
+
+                <h3 class="is-5 mt-1">Posted by <strong>{{ event.host.first_name }} {{ event.host.last_name }}</strong>
+                </h3>
+              </div>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

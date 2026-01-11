@@ -1,0 +1,33 @@
+{% extends 'base.jinja' %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-half has-text-centered">
+
+        <h1 class="title is-1 has-text-grey">
+          {{ code }}
+        </h1>
+
+        <h2 class="subtitle is-4 has-text-grey">
+          {{ message }}
+        </h2>
+
+        <p class="content has-text-grey">It may have moved or the web address you entered was incorrect.</p>
+
+        <div class="buttons is-centered mt-5">
+          <a href="/events" class="button is-link is-light">
+            Home
+          </a>
+
+          <a href="javascript:history.back()" class="button is-text">
+            Go back
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,53 @@
+{% extends 'base.jinja' %}
+
+{% block content %}
+<div class="box">
+  <h1 class="title is-3 has-text-centered">User Profile</h1>
+
+  {% if user.profile_image_path %}
+  <div class="has-text-centered mb-4">
+    <figure class="image is-128x128 is-inline-block">
+      <img src="{{ user.profile_image_path }}" alt="{{user.first_name}}">
+    </figure>
+  </div>
+  {% endif %}
+
+  <h2 class="subtitle has-text-centered mb-3"><strong>{{user.first_name}} {{user.last_name}}</strong></h2>
+  <p class="has-text-centered mb-2">{{user.email}}</p>
+
+  {% if user.bio %}
+  <p class="has-text-centered mb-4"><strong> {{user.bio}} </strong></p>
+  {% endif %}
+
+  {% if user.phone_number %}
+  <p class="has-text-centered mb-2"><strong>Phone:</strong> {{user.phone_number}}</p>
+  {% endif %}
+
+  {% if user.location %}
+  <p class="has-text-centered mb-2"><strong>Location:</strong> {{user.location}}</p>
+  {% endif %}
+
+  {% if current_user.id == user.id %}
+  <p class="has-text-centered mb-2"><a href="{{url_for('user.get_user_profile_form', user_id=user.id)}}">Edit
+      Profile</a></p>
+  {% endif %}
+
+  <p class="has-text-centered mb-5"><a href="{{url_for('events.event_list')}}">Back to Events</a></p>
+
+  <hr>
+
+  {% if current_user.id == user.id %}
+  <h3 class="title has-text-centered mb-3">My Events</h3>
+  <p class="has-text-centered mb-2"><strong>Hosting:</strong> {{user.events|length}}</p>
+  <p class="has-text-centered mb-3"><strong>Registered:</strong> {{user.event_registrations|length}}</p>
+
+  {% if user.events %}
+  <ul>
+    {% for event in user.events %}
+    <li>{{event.title}} - {{event.date}}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endif %}
+</div>
+{% endblock content %}

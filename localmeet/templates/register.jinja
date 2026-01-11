@@ -1,0 +1,110 @@
+{% extends 'base.jinja' %}
+
+{% block content %}
+<section class="hero is-info is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-6-tablet is-5-desktop is-4-widescreen">
+          <div class="box">
+            <div class="has-text-centered mb-5">
+              <h1 class="title is-3">Join LocalMeet</h1>
+              <p class="subtitle is-6">Create your account to get started</p>
+            </div>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="notification is-{{ 'danger' if category == 'danger' else 'warning' if category == 'warning' else 'info' if category == 'info' else 'success' }}">
+                    <button class="delete" onclick="this.parentElement.remove()"></button>
+                    {{ message }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+            
+            <form method="POST" action="{{ url_for('auth.register') }}">
+              <div class="columns">
+                <div class="column">
+                  <div class="field">
+                    <label class="label" for="first_name">First Name</label>
+                    <div class="control has-icons-left">
+                      <input class="input" type="text" id="first_name" name="first_name" required placeholder="John" autofocus>
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="column">
+                  <div class="field">
+                    <label class="label" for="last_name">Last Name</label>
+                    <div class="control has-icons-left">
+                      <input class="input" type="text" id="last_name" name="last_name" required placeholder="Doe">
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label" for="email">Email</label>
+                <div class="control has-icons-left">
+                  <input class="input" type="email" id="email" name="email" required placeholder="your@email.com">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label" for="password">Password</label>
+                <div class="control has-icons-left">
+                  <input class="input" type="password" id="password" name="password" required placeholder="••••••••">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label" for="confirm_password">Confirm Password</label>
+                <div class="control has-icons-left">
+                  <input class="input" type="password" id="confirm_password" name="confirm_password" required placeholder="••••••••">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </div>
+              </div>
+
+              <div class="field">
+                <button type="submit" class="button is-info is-fullwidth">
+                  <span class="icon">
+                    <i class="fas fa-user-plus"></i>
+                  </span>
+                  <span>Create Account</span>
+                </button>
+              </div>
+            </form>
+
+            <hr>
+
+            <div class="has-text-centered">
+              <p class="mb-2">Already have an account?</p>
+              <a href="{{ url_for('auth.login') }}" class="button is-light is-fullwidth">
+                <span class="icon">
+                  <i class="fas fa-sign-in-alt"></i>
+                </span>
+                <span>Sign In</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

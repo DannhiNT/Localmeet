@@ -1,0 +1,20 @@
+{% extends 'base.jinja' %}
+
+{% block content %}
+<div>
+  <h1>LocalMeet</h1>
+  <p>Sign in with your Google account</p>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <p><strong>{{ message }}</strong></p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  
+  <p><a href="{{ url_for('auth.login') }}">Sign in with Google</a></p>
+  
+  <p><small>By signing in, you agree to our Terms of Service and Privacy Policy</small></p>
+</div>
+{% endblock content %}
