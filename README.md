@@ -1,6 +1,6 @@
 # LocalMeet
 
-🔗 **Live Demo**: [https://justine208.pythonanywhere.com/events/](Localmeet)
+🔗 **Live Demo**: [Localmeet](https://justine208.pythonanywhere.com/events/)
 
 LocalMeet is a community-driven web application that allows local residents and organizations to create, discover, and manage events happening in a specific area. Users can browse events, view details, and register interest, helping hosts better estimate attendance and coordinate logistics.
 
